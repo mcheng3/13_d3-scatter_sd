@@ -15,19 +15,19 @@ var createplot = function(){
 	    return 100 + "";
 	}
 	if (d== 122){
-	    return 200+"";
+	    return 250+"";
 	}
 	if(d==11){
-	    return 300+"";
-	}
-	if(d==79){
 	    return 400+"";
 	}
+	if(d==79){
+	    return 550+"";
+	}
 	if(d==7){
-	    return 500+"";
+	    return 700+"";
 	}
 	else{
-	    return 600+"";
+	    return 850+"";
 	}
     });
     circles.attr("cy",function(d){
@@ -37,8 +37,39 @@ var createplot = function(){
     
 }
 
+var createtext = function(){
+    var container = d3.select("svg");
+    var text = container.selectAll("text").data(countries).enter().append("text");
+    text.attr("y",550);
+    text.attr("x",function(d){
+	if(d == "USA"){
+	    return 100 + "";
+	}
+	if (d== "RUSSIA"){
+	    return 200+"";
+	}
+	if(d=="CHINA"){
+	    return 350+"";
+	}
+	if(d=="INTERNATIONAL"){
+	    return 500+"";
+	}
+	if(d=="COMMERCIAL"){
+	    return 650+"";
+	}
+	else{
+	    return 800+"";
+	}
+    });
+    text.text(function(d){
+	return d;
+    });
+}
+	
+
 var button = document.getElementById("button");
 button.addEventListener("click",createplot);
+button.addEventListener("click",createtext);
 	
 	      
 	    
