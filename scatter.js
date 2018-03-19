@@ -65,12 +65,24 @@ var createtext = function(){
 	return d;
     });
 }
-	
+
+
+var createnums = function(){
+    var container = d3.select("svg");
+    var text = container.selectAll("text").data(people).enter().append("text");
+    text.attr("x",50);
+    text.attr("y",function(d){
+	return 500 - d;
+    });
+    text.text(function(d){
+	return d;
+    });
+}
 
 var button = document.getElementById("button");
 button.addEventListener("click",createplot);
 button.addEventListener("click",createtext);
-	
+button.addEventListener("click",createnums);	
 	      
 	    
 	
