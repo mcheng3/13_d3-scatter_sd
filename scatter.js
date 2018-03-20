@@ -24,7 +24,7 @@ var createplot = function(){
     var x = container.append("text");
     x.text("years in education").attr("x", 400).attr("y", 885);
     circles.attr("cy",function(d){
-	   return 900-Math.floor(d[0]/120);
+	   return 1000-Math.floor(d[0]/100);
     });
     circles.attr("cx",function(d){
 	   return d[1]*30;
